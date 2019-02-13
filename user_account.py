@@ -12,7 +12,7 @@ import urllib3
 
 key = 'PsJorfW9NYUWRitA'
 
-domain = 'http://127.0.0.1:8010'
+domain = 'http://admin.seanking.top'
 add_url = '/Api/User/add'
 list_url = '/Api/MailImap/getListMessage'
 msg_url = '/Api/MailImap/getMessage'
