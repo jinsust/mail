@@ -5,8 +5,9 @@ from selenium import webdriver # 从selenium导入webdriver
 from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--no-sandbox')
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
 driver.get('https://www.baidu.com') # 获取百度页面
