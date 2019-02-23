@@ -8,18 +8,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-url = 'webmail.kingxin.top'
+url = 'http://webmail.kingxin.top'
 
 cr = Chrome(False)
 
 def get_webmail_cookie(username, password):
     cr.driver.get(url)
-    input_mail = cr.driver.find_elements_by_class_name('inputMail')[0]
+    wait = WebDriverWait(cr.driver, 10)
+    input_mail = wait.until(EC.element_to_be_clickable((By.ID, 'RainLoopEmail')))
     input_mail.send_keys(username)
-    input_pw = cr.driver.find_elements_by_class_name('inputPassword')[0]
+    input_pw = cr.driver.find_element_by_id('RainLoopPassword')
     input_pw.send_keys(password)
 
-    button_login = cr.driver.find_element_by_class_name('buttonLogin')[0]
+    button_login = cr.driver.find_element_by_class_name('buttonLogin')
 
     button_login.click()
 
@@ -32,6 +33,9 @@ def get_webmail_cookie(username, password):
     cookies = cr.driver.get_cookies()
 
     print(cookies)
+
+get_webmail_cookie("jinsu@kingxin.top", "poiu0987")
+cr.close()
 
 
 
